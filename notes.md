@@ -31,4 +31,7 @@
       4. steps/evaluation.py - to evaluate
    4. Create Pipeline :
       1. pipelines/training_pipeline.py
-      2.
+      2. run_pipeline.py which will call the training pipeline `run_pipeline.py`
+5. After Skeleton Code is completed -
+   1. src/data_cleaning.py - Writing the Strategy Pattern for cleaning and splitting the data into testing and training. Update the clean_data function in steps to do the actual cleaning.
+   2.
