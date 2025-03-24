@@ -5,7 +5,11 @@ from zenml import step
 from src.model_development import LinearRegressionModel, RandomForestModel
 from sklearn.base import RegressorMixin
 
-@step
+import mlflow
+from zenml.client import Client
+experiment_tracker = Client().active_stack.experiment_tracker
+
+@step(experiment_tracker=experiment_tracker.name)
 def train_model(X_train: pd.DataFrame, y_train: pd.Series, model_name: str = "LinearRegression") -> RegressorMixin:
    """
    Trains the Model on ingested Data
@@ -18,6 +22,7 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series, model_name: str = "Li
    try:
       model = None
       if model_name == "LinearRegression":
+         mlflow.sklearn.autolog()  # Experiment tracking using mlflow autologging for sklearn models
          model = LinearRegressionModel()
          trained_model = model.train(X_train, y_train)
          return trained_model
