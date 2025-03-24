@@ -26,7 +26,7 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series, model_name: str = "Li
          trained_model = model.train(X_train, y_train)
          return trained_model
       else:
-         raise ValueError("Model {} not supported".format(config.model_name))
+         raise ValueError("Model {} not supported".format(model_name))
    except Exception as e:
       logging.error("Error in training model: {}".format(e))
       raise e
