@@ -29,4 +29,6 @@
       2. steps/clean_data.py - cleaning the data
       3. steps/train_model.py - for training the model
       4. steps/evaluation.py - to evaluate
-   5.
+   4. Create Pipeline :
+      1. pipelines/training_pipeline.py
+      2.
